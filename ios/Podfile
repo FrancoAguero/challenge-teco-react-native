@@ -26,6 +26,8 @@ target 'ChallengeTecoReactNative' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
+  pod 'react-native-geolocation', :path => '../node_modules/@react-native-community/geolocation'
+
   target 'ChallengeTecoReactNativeTests' do
     inherit! :complete
     # Pods for testing
