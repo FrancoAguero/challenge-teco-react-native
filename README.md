@@ -20,3 +20,36 @@ Proyecto para consulta sobre clima que pueda visualizar el pronóstico actual, p
 
 ![App Screenshot](https://github.com/FrancoAguero/challenge-teco-react-native/blob/master/src/assets/App.png?raw=true)
 
+
+## Run Locally
+
+Clone the project
+
+```bash
+  git clone https://github.com/FrancoAguero/challenge-teco-react-native.git
+```
+
+Go to the project directory
+
+```bash
+  cd challenge-teco-react-native
+```
+
+Install dependencies
+
+```bash
+  npm install
+```
+
+Start Metro
+
+```bash
+  npx react-native start
+```
+
+Start Build
+
+```bash
+  npx react-native run-android / npx react-native run-ios
+```
+
