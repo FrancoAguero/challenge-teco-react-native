@@ -1,8 +1,8 @@
 //React
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 //Components
-import { StyleSheet, ScrollView, Text, Dimensions, ActivityIndicator, View} from 'react-native'
+import { StyleSheet, ScrollView, ActivityIndicator, View} from 'react-native'
 import SelectChip from '../components/SelectChip'
 
 //Utils
@@ -12,12 +12,11 @@ import { getWeatherFetch } from '../reduxStore/actions/weatherActions'
 import DailyWeatherCard from '../components/DailyWeatherCard'
 import WeeklyWeatherCard from '../components/WeeklyWeatherCard'
 
-const { width, height } = Dimensions.get("window")
 
 const Home = () => {
   const dispatch = useDispatch()
   const { data, loading } = useSelector((state) => state.weatherReducer)
-  const [ { lat, lon }, allLocationsCoords, setAllLocationsCoords ] = useLocations()
+  const [ { lat, lon }, allLocationsCoords ] = useLocations()
 
   useEffect(() => {
     if(data.length === 0 && lat ) {
@@ -29,11 +28,11 @@ const Home = () => {
   }, [lat])
 
   useEffect(() => {
-  }, [data]);
+  }, [data, allLocationsCoords]);
 
   return (
     <ScrollView>
-      <SelectChip data={allLocationsCoords} setAllLocationsCoords={setAllLocationsCoords} />
+      <SelectChip data={allLocationsCoords} />
       <View style={styles.container}>
         { !loading ? 
           <View>

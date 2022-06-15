@@ -10,18 +10,11 @@ import { Chip } from 'react-native-paper'
 
 const { width } = Dimensions.get("window")
 
-const SelectChip = ({ data, setAllLocationsCoords }) => {
+const SelectChip = ({ data }) => {
     const dispatch = useDispatch()
 
-    const handleSelectorChipLocation = ({item, index}) => {
+    const handleSelectorChipLocation = (item) => {
         const { lat, lon } = item
-        setAllLocationsCoords((prevState) => {
-            const newState = prevState
-            newState[index].checked = true
-            return [
-                ...newState
-            ]
-        })
         dispatch(getWeatherFetch({
             lat,
             lon
@@ -34,9 +27,9 @@ const SelectChip = ({ data, setAllLocationsCoords }) => {
     return (
         <View style={styles.chipContainer}>
             {
-                data.length !== 0 && data.map((item, index) =>  (
-                    <Chip key={item.id} style={styles.chip} onPress={() => handleSelectorChipLocation({item, index})}>
-                        <Text style={{color: "#fff"}}>{ item.name }</Text>
+                data.length !== 0 && data.map((item) =>  (
+                    <Chip key={item.id} style={styles.chip} onPress={() => handleSelectorChipLocation(item)}>
+                        <Text style={{color: "#fff", fontSize: 13}}>{ item.name }</Text>
                     </Chip>
                 ))
             }

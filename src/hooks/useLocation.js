@@ -9,7 +9,6 @@ export const useLocations = () => {
     name: "Ubicacion Actual",
     lat: null,
     lon: null,
-    checked: false
   })
 
   const [allLocationsCoords, setAllLocationsCoords] = useState([])
@@ -17,7 +16,6 @@ export const useLocations = () => {
   useEffect(() => {
     getCurrentLocation()
       .then((response) => {
-        console.log(response)
         setUserCoords((prevState) => ({
           ...prevState,
           ...response
@@ -34,35 +32,30 @@ export const useLocations = () => {
           name: "Brasil - Sao Paulo",
           lat: "-23.562522",
           lon: "-46.640364",
-          checked: false
         },
         {
           id: 3,
           name: "Uruguay - Montevideo",
           lat: "-34.869123",
           lon: "-56.164491",
-          checked: false
         },
         {
           id: 4,
           name: "Chile - Santiago de Chile",
           lat: "-33.475591",
           lon: "-70.653851",
-          checked: false
         },
         {
           id: 5,
           name: "España - Madrid",
           lat: "40.415538",
           lon: "-3.701716",
-          checked: false
         },
         {
           id: 6,
           name: "Portugal - Lisboa",
           lat: "38.725298",
           lon: "-9.149952",
-          checked: false
         },
       ])
   }, [userCoords]);
@@ -83,6 +76,5 @@ export const useLocations = () => {
   return [
     userCoords,
     allLocationsCoords,
-    setAllLocationsCoords
   ]
 }

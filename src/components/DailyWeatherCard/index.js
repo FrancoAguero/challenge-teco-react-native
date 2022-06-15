@@ -22,15 +22,13 @@ const DailyWeatherCard = ({ data, timezone }) => {
     const { temp, feels_like, weather: [ iconData ], sunrise, sunset, dt, uvi, humidity, wind_speed } = data
     const [ city ] = timezone.split('/').slice(-1)
 
-    console.log(iconData)
-    
     return (
         <View>
             <Surface style={styles.cardContainer} elevation={4}>
                 <View style={styles.dailyContent}>
-                    <Text style={{fontSize: 24}}>{`${parseInt(temp)}º`}</Text>
+                    <Text style={{fontSize: 35}}>{`${parseInt(temp)}º`}</Text>
                     <Text>{city}</Text>
-                    <Text>{`Sensacion terminca ${parseInt(feels_like)}º`}</Text>
+                    <Text>{`Sensacion termica ${parseInt(feels_like)}º`}</Text>
                     <Text>{`${formatterDate(dt).toLocaleDateString()}, ${formatterDate(dt).toLocaleTimeString()}`}</Text>
                 </View>
                 <View style={styles.dailyContent}>
